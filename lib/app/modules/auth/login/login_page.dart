@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:review_projects/app/modules/auth/register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -96,7 +97,11 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(builder: (context) => RegisterPage())
+                                );
+                              },
                               child: const Text('Criar conta'),
                             ),
                             GestureDetector(
