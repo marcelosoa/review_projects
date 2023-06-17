@@ -15,94 +15,121 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0XFF3D3D3D),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const SizedBox(height: 80),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white, fontSize: 40),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(height: 80),
+            const Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 80),
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Text('Login',
+                            style: TextStyle(
+                                color: Color(0XFFFFFFFF), fontSize: 40)),
+                        Text(
+                          'welcome back',
+                          style: TextStyle(color: Colors.black, fontSize: 15),
+                        )
+                      ],
                     ),
-                    SizedBox(height: 15),
-                    Text(
-                      'Welcome back',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                  ],
-                ),
+                  )
+                ],
               ),
-              const SizedBox(height: 25),
-              Container(
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Container(
                 decoration: const BoxDecoration(
+                  color: Color(0XFFF5F5F5),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(60),
                     topRight: Radius.circular(60),
                   ),
-                  color: Color(0XFFF5F5F5),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 25),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          suffixIcon: Icon(Icons.email),
-                          hintText: 'email@example.com',
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          hintText: 'password',
-                          suffixIcon: Icon(Icons.password),
-                        ),
-                      ),
-                      const SizedBox(height: 25),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text('Criar conta'),
-                          Text('Esqueci minha senha'),
-                        ],
-                      ),
-                      const SizedBox(height: 25),
-                      GestureDetector(
-                        onTap: () {
-                          print('cliquei');
-                        },
-                        child: Container(
-                          height: 70,
-                          margin: const EdgeInsets.symmetric(horizontal: 50),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: const Color(0XFFD9D9D9),
+                            color: Color(0XFFb5b1b0),
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          child: Center(
-                            child: Text(
-                              'conectar',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              hintText: 'email@example.com',
+                              suffixIcon: Icon(Icons.email),
+                              hintStyle: TextStyle(color: Color(0XFFF5F5F5)),
+                              border: InputBorder.none,
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 25),
-                    ],
+                        const SizedBox(height: 15), // Adiciona um espaço
+                        const SizedBox(height: 15), // Adiciona um espaço
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Color(0XFFb5b1b0),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              hintText: 'password',
+                              suffixIcon: Icon(Icons.password_outlined),
+                              hintStyle: TextStyle(color: Color(0xffF5F5F5)),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 45),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: const Text('Criar conta'),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: const Text('Esqueci minha senha'),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 45),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            height: 65,
+                            margin: const EdgeInsets.symmetric(horizontal: 50),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: const Color(0XFF3D3D3D),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'conectar',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
