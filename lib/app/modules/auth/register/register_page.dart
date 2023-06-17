@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:review_projects/app/modules/home/home_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -6,10 +7,10 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF3D3D3D),
+      backgroundColor: const Color(0XFF3D3D3D),
       body: SingleChildScrollView(
         child: Container(
-          color: const Color(0xFF000000), // Define o background como preto
+          color: const Color(0xFF3D3D3D), // Define o background como preto
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -17,11 +18,12 @@ class RegisterPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: TextFormField(
-                  style: const TextStyle(color: Colors.white), // Define a cor do texto como branco
+                  style: const TextStyle(
+                      color: Colors.white), // Define a cor do texto como branco
                   decoration: const InputDecoration(
-                    hintText: 'nome completo',
+                    hintText: 'Nome Completo',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.person),
+                    suffixIcon: Icon(Icons.person, color: Colors.white),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -32,11 +34,12 @@ class RegisterPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: TextFormField(
-                  style: const TextStyle(color: Colors.white), // Define a cor do texto como branco
+                  style: const TextStyle(
+                      color: Colors.white), // Define a cor do texto como branco
                   decoration: const InputDecoration(
-                    hintText: 'senha',
+                    hintText: 'Senha',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.password),
+                    suffixIcon: Icon(Icons.password, color: Colors.white),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -47,11 +50,12 @@ class RegisterPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: TextFormField(
-                  style: const TextStyle(color: Colors.white), // Define a cor do texto como branco
+                  style: const TextStyle(
+                      color: Colors.white), // Define a cor do texto como branco
                   decoration: const InputDecoration(
-                    hintText: 'confirmar senha',
+                    hintText: 'Confirmar Senha',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.password),
+                    suffixIcon: Icon(Icons.password, color: Colors.white),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -62,11 +66,12 @@ class RegisterPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: TextFormField(
-                  style: const TextStyle(color: Colors.white), // Define a cor do texto como branco
+                  style: const TextStyle(
+                      color: Colors.white), // Define a cor do texto como branco
                   decoration: const InputDecoration(
-                    hintText: 'email',
+                    hintText: 'Email',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.email),
+                    suffixIcon: Icon(Icons.email, color: Colors.white),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -79,9 +84,9 @@ class RegisterPage extends StatelessWidget {
                 child: TextFormField(
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                    hintText: 'cpf',
+                    hintText: 'Cpf',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.numbers_sharp),
+                    suffixIcon: Icon(Icons.numbers_sharp, color: Colors.white),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -89,6 +94,28 @@ class RegisterPage extends StatelessWidget {
               const Divider(
                 color: Colors.white,
               ),
+              const SizedBox(height: 25),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomePage())
+                  );
+                },
+                child: Container(
+                  height: 65,
+                  margin: const EdgeInsets.symmetric(horizontal: 50),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: const Color(0XFFF5F5F5),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Conectar',
+                      style: TextStyle(color: Color(0XFF3D3D3D)),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
