@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 part 'bloc_event.dart';
 part 'bloc_state.dart';
@@ -9,6 +8,8 @@ class PasswordBloc extends Bloc<BlocEvent, BlocState> {
     on<BlocEventFindAllPasswords>(_findAllPasswords);
     on<BlocEventAddNewPassword>(_addNewPassword);
     on<BlocEventRemovePassword>(_removePassword);
+    on<BlocEventCreateAccount>(_creatAccount);
+    on<BlocEventLoginAccount>(_loginAccount);
   }
 
   FutureOr<void> _findAllPasswords(
@@ -17,16 +18,6 @@ class PasswordBloc extends Bloc<BlocEvent, BlocState> {
       await Future.delayed(Duration(seconds: 3));
       emit(BlocStateData(passwords: passwords));
     }
-
-  
-  // FutureOr<void> _addNewPassword(
-  //   BlocEventAddNewPassword event, Emitter<BlocState> emit ) async {
-  //     final blocState = state;
-  //     if (blocState is BlocStateData) {
-  //       final passwords = [...blocState.passwords];
-  //       emit(BlocStateData(passwords: passwords));
-  //     }
-  //   }
 
   FutureOr<void> _addNewPassword(
     BlocEventAddNewPassword event,
@@ -48,5 +39,19 @@ class PasswordBloc extends Bloc<BlocEvent, BlocState> {
         passwords.retainWhere((element) => element != event.password);
         emit(BlocStateData(passwords: passwords));
       }
-    } 
+    }
+
+  FutureOr<void> _creatAccount(
+    BlocEventCreateAccount event,
+    Emitter<BlocState> emit
+  ) async {
+  }
+
+  FutureOr<void> _loginAccount(
+    BlocEventLoginAccount event,
+    Emitter<BlocState> emit
+  ) async {
+
+  }
+
 }

@@ -22,4 +22,22 @@ class BlocEventRemovePassword extends BlocEvent {
   });
 }
 
+class BlocEventCreateAccount extends BlocEvent {
+  final String email;
+  final String password;
+  BlocEventCreateAccount({
+    required this.email,
+    required this.password
+  });
+}
+
+class BlocEventLoginAccount extends BlocEvent {
+  final String email;
+  final String password;
+  BlocEventLoginAccount({
+    required this.email,
+    required this.password
+  });
+}
+
 

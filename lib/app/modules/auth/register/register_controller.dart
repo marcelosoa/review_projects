@@ -11,12 +11,11 @@ class LoginControler extends DefaultChangeNotifier {
   
   bool get hasInfo => infoMessage != null;
 
-  Future<void> login(String email, String password) async {
+  Future<void> createUser(String email, String password) async {
     try {
       showLoadingAndResetState();
-      infoMessage = null;
       notifyListeners();
-      final user = _userService.login(email, password);
+      final user = await _userService.register(email, password);
 
       if ( user != null) {
         success();
