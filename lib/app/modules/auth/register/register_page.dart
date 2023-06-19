@@ -98,7 +98,7 @@ class RegisterPage extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomePage())
+                    MaterialPageRoute(builder: (context) => HomeScreen())
                   );
                 },
                 child: Container(
