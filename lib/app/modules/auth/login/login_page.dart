@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0XFF3D3D3D),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,11 +63,12 @@ class _LoginPageState extends State<LoginPage> {
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Color(0XFFb5b1b0),
+                            color: const Color(0XFFb5b1b0),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: const TextField(
-                            decoration: InputDecoration(
+                          child: TextField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
                               hintText: 'email@example.com',
                               suffixIcon: Icon(Icons.email),
                               hintStyle: TextStyle(color: Color(0XFFF5F5F5)),
@@ -80,11 +81,12 @@ class _LoginPageState extends State<LoginPage> {
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Color(0XFFb5b1b0),
+                            color: const Color(0XFFb5b1b0),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: const TextField(
-                            decoration: InputDecoration(
+                          child: TextField(
+                            controller: _passwordController,
+                            decoration: const InputDecoration(
                               hintText: 'password',
                               suffixIcon: Icon(Icons.password_outlined),
                               hintStyle: TextStyle(color: Color(0xffF5F5F5)),
@@ -99,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                             GestureDetector(
                               onTap: () {
                                 Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(builder: (context) => RegisterPage())
+                                  MaterialPageRoute(builder: (context) => const RegisterPage())
                                 );
                               },
                               child: const Text('Criar conta'),
