@@ -97,9 +97,7 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomePage())
-                  );
+                  Navigator.of(context).pushReplacementNamed('/home');
                 },
                 child: Container(
                   height: 65,
