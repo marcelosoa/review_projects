@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:review_projects/app/core/bloc/password_bloc.dart';
 import 'package:review_projects/app/modules/home/home_page.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +101,9 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
+                  final email = _emailController.text;
+                  final password = _passwordController.text;
+                  context.read<PasswordBloc>().add(BlocEventCreateAccount(email: email, password: password));
                   Navigator.of(context).pushReplacementNamed('/home');
                 },
                 child: Container(

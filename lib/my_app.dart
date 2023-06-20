@@ -10,21 +10,24 @@ import 'app/modules/home/home_page.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true
-      ),
-      debugShowCheckedModeBanner: false,
-      title: 'MyPasswords',
-      routes: {
-        '/login': (_) => const LoginPage(),
-        '/register': (_) => const RegisterPage(),
-        '/home': (_) => BlocProvider(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PasswordBloc>(
           create: (_) => PasswordBloc()..add(BlocEventFindAllPasswords()),
-          child: HomeScreen(),
-          )
-      },
-      home: const LoginPage(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        title: 'MyPasswords',
+        home: const LoginPage(),
+        routes: {
+          '/register': (_) => RegisterPage(),
+          '/home': (_) => HomeScreen(),
+        },
+      ),
     );
   }
 }
