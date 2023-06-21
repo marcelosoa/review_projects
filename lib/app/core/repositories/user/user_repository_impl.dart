@@ -28,19 +28,27 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<User?> register(String email, String password) async {
-   try {
-    final UserCredential = await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email, 
-      password: password
-    );
-    return UserCredential.user;
-   } on FirebaseAuthException catch (e) {
+    try {
+      final UserCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      return UserCredential.user;
+    } on FirebaseAuthException catch (e, s) {
+      print(e);
+      print(s);
       if (e.code == 'email-already-in-use') {
-        throw AuthException(message: 'Email já existente');
+        final loginTypes =
+            await _firebaseAuth.fetchSignInMethodsForEmail(email);
+        if (loginTypes.contains('password')) {
+          throw AuthException(message: 'Email já utilizado');
+        } else {
+          throw AuthException(
+              message:
+                  'Você se registrou com o google, por favor faça uma conexão com o mesmo');
+        }
       } else {
-        throw AuthException(message: e.message?? 'Erro ao realizar register');
+        throw AuthException(message: e.message ?? 'Erro ao Registrar Usuário');
       }
-   }
+    }
   }
 
 }
